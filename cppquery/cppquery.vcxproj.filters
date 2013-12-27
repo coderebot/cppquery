@@ -51,6 +51,18 @@
     <ClInclude Include="api\cqwin.h">
       <Filter>api</Filter>
     </ClInclude>
+    <ClInclude Include="api\cqfunction.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\cqholder.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\cqlist.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\cqbind.h">
+      <Filter>api</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -64,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="api\cppquery.cpp">
       <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="demo_dialog_get_int_values.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

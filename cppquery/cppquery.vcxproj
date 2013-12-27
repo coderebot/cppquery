@@ -78,6 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="api\cppquery.h" />
+    <ClInclude Include="api\cqbind.h" />
+    <ClInclude Include="api\cqfunction.h" />
+    <ClInclude Include="api\cqholder.h" />
+    <ClInclude Include="api\cqlist.h" />
     <ClInclude Include="api\cqprototype.h" />
     <ClInclude Include="api\cqwin.h" />
     <ClInclude Include="api\cqwinbase.h" />
@@ -90,6 +94,7 @@
     <ClCompile Include="api\cppquery.cpp" />
     <ClCompile Include="api\cqwinbase.cpp" />
     <ClCompile Include="cppquerytest.cpp" />
+    <ClCompile Include="demo_dialog_get_int_values.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

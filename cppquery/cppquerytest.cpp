@@ -12,6 +12,7 @@ using namespace cppquery;
 HINSTANCE hInst;								// current instance
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 
+void demo_dialog_get_int_values();
 
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -36,9 +37,13 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     Window window = Window::Create(hInstance, 0, 0, 0, 600, 400, szTitle, WS_OVERLAPPEDWINDOW);
 
     window.loadMenu(hInstance, MAKEINTRESOURCE(IDC_CPPQUERY))
-        .onCommand(IDM_EXIT, MK_FUNC(FUNC(DestroyWindow), window.hwnd()))
-        .onDestroy(MK_FUNC(FUNC(PostQuitMessage), 0))
-        .onCommand(IDM_ABOUT, MK_FUNC(FUNC(DoDialogModel),hInstance, window.hwnd(), IDD_ABOUTBOX, about_handles))
+        .onCommand(IDM_EXIT, BIND(DestroyWindow, window.hwnd()))
+        .onDestroy(BIND(PostQuitMessage, 0))
+        .onCommand(IDM_ABOUT, BIND(DoDialogModel,hInstance, window.hwnd(), IDD_ABOUTBOX, about_handles))
+        //for demos
+        //for dialog demos
+        .onCommand(ID_DIALOG_GETINTVALUES, BIND(demo_dialog_get_int_values))
+        //end demos
         .show(nCmdShow)
         .update()
         .doModel();          

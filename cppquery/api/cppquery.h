@@ -3,10 +3,12 @@
 
 #include "cqwin.h"
 #include "cqfunction.h"
+#include "cqbind.h"
 
 #define MK_FUNC make_function
 #define FUNC func_ptr
 #define METHOD method_ptr
+#define BIND bind
 #include <windows.h>
 
 namespace cppquery {
