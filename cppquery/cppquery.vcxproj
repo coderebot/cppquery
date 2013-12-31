@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="api\cppquery.h" />
     <ClInclude Include="api\cqbind.h" />
+    <ClInclude Include="api\cqdatacontrol.h" />
     <ClInclude Include="api\cqfunction.h" />
     <ClInclude Include="api\cqholder.h" />
     <ClInclude Include="api\cqlist.h" />
@@ -92,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="api\cppquery.cpp" />
+    <ClCompile Include="api\cqdatacontrol.cpp" />
     <ClCompile Include="api\cqwinbase.cpp" />
     <ClCompile Include="cppquerytest.cpp" />
     <ClCompile Include="demo_dialog_get_int_values.cpp" />

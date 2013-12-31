@@ -7,6 +7,9 @@
 namespace cppquery
 {
 
+
+#define CPPQUERY_WND_CLASS L"cppquery_default_window"
+
 ////////////////////////////
 //定义包装函数
 template<class R>
@@ -75,7 +78,7 @@ struct message_callback6_impl : public message_callback6<R,A,B,C,D,E,F> {
 };
 
 
-class WindowFrontPeer : public FrontPeer
+class WindowFrontPeer : public WindowPeer
 {
 public:
     //define the message handle
@@ -87,7 +90,7 @@ public:
     typedef message_handle* MessageHandle;
 
 protected:
-    WindowFrontPeer(WindowFrontPeer* p) : FrontPeer(p), entries_(p ? p->entries_: NULL){
+    WindowFrontPeer(WindowFrontPeer& p) : WindowPeer(p), entries_(p.entries_){
 
     }
     MessageHandle * entries_;
@@ -210,6 +213,16 @@ protected:
         return (MsgHandle*)h;
     }
 
+    static void init()
+    {
+        static WindowFrontPeer * peer = NULL;
+        if(peer == NULL){
+            peer = new WindowFrontPeer();
+            AddWindowPeer(CPPQUERY_WND_CLASS, peer);
+            AddWindowPeer(L"#32770", peer); //Dialog
+        }
+    }
+
 public:
     WindowFrontPeer() : entries_(NULL){ }
 
@@ -217,7 +230,16 @@ public:
         entries_ = handles;
     }
 
-    WindowFrontPeer *clone() { return new WindowFrontPeer(this); }
+    static WindowFrontPeer * GetFrontPeer(HWND hwnd) {
+        init();
+        return (WindowFrontPeer*)WindowPeer::AutoGet(hwnd);
+    }
+    static WindowFrontPeer* GetWritePeer(HWND hwnd) {
+        init();
+        return (WindowFrontPeer*)WindowPeer::AutoGetWriteable(hwnd);
+    }
+
+    WindowFrontPeer *clone() { return new WindowFrontPeer(*this); }
 
     template<class F>
     void onPaint(F const& f){

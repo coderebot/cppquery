@@ -2,26 +2,28 @@
 #include "api/cppquery.h"
 #include <tchar.h>
 #include "resource.h"
+using namespace cppquery;
 
 int gWidth = 300;
 int gHeight = 400;
 
-void demo_dialog_get_int_values()
+void demo_dialog_get_int_values(HINSTANCE hInst, HWND hParent)
 {
-    MessageBox(0, _T("Test Get Int Values"), _T("Get Int Value"), 0);
+    //MessageBox(0, _T("Test Get Int Values"), _T("Get Int Value"), 0);
 
-    /*Dialog dialog(hInst, ID_DIALOG_GETINTVALUES);
-    dialog.number(IDC_EDIT_WIDTH).bind(&gWidth);
-    dialog.number(IDC_EDIT_HEIGHT).bind(&gHeight);
+    Dialog dialog(hInst, IDD_DIALOG_GETINTVALUES, hParent);
+    dialog.intNumber(IDC_EDIT_WIDTH).bind(&gWidth);
+    dialog.intNumber(IDC_EDIT_HEIGHT).bind(&gHeight);
 
-    TCHAR szText[100];
-    if(dialog.doMode())
+    wchar_t szText[100];
+    if(dialog.doModel())
     {
-        _tsprintf(szText, _T("Get New Width=%d, Height=%d"), gWidth, gHeight);
+        wsprintf(szText, L"Get New Width=%d, Height=%d", gWidth, gHeight);
+        
     }
     else
     {
-        _tsprintf(szText, _T("Error!"));
+        wsprintf(szText, L"Error!");
     }
-    MessageBox(0, szText, _T("Result"), 0);*/
+    MessageBox(0, szText, L"Result", 0);
 }

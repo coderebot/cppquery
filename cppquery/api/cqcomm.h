@@ -28,7 +28,7 @@ public:
 	RefPtr(T *ptr) : ptr_(ptr? ptr->ref() : NULL) { }
 	RefPtr(RefPtr const&p) : ptr_(p.ref()) { }
 
-	T *ref() const{ return ptr_ ? ptr_->ref() : NULL; }
+	T *ref() const{ return static_cast<T*>(ptr_ ? ptr_->ref() : NULL); }
 	T *ptr() { return ptr_; }
 	T const* ptr() const { return ptr_; }
 	operator T *() { return ptr_; }

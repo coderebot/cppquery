@@ -12,7 +12,7 @@ using namespace cppquery;
 HINSTANCE hInst;								// current instance
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 
-void demo_dialog_get_int_values();
+void demo_dialog_get_int_values(HINSTANCE, HWND);
 
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -42,7 +42,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         .onCommand(IDM_ABOUT, BIND(DoDialogModel,hInstance, window.hwnd(), IDD_ABOUTBOX, about_handles))
         //for demos
         //for dialog demos
-        .onCommand(ID_DIALOG_GETINTVALUES, BIND(demo_dialog_get_int_values))
+        .onCommand(ID_DIALOG_GETINTVALUES, BIND(demo_dialog_get_int_values, hInstance, window.hwnd()))
         //end demos
         .show(nCmdShow)
         .update()

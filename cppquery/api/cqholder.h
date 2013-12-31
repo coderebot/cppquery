@@ -1,5 +1,6 @@
 #ifndef CQ_HOLDER_H
 #define CQ_HOLDER_H
+#include <string>
 
 namespace cppquery{
 
@@ -17,6 +18,13 @@ struct ArgCast<const char*, std::string>
 	const char* operator()(std::string const& str) const {
 		return str.c_str();
 	}
+};
+template<>
+struct ArgCast<const wchar_t*, std::wstring>
+{
+    const wchar_t* operator()(std::wstring const& wstr) const {
+        return wstr.c_str();
+    }
 };
 
 template<typename T1, typename T2>

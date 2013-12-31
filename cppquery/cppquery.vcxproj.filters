@@ -63,6 +63,9 @@
     <ClInclude Include="api\cqbind.h">
       <Filter>api</Filter>
     </ClInclude>
+    <ClInclude Include="api\cqdatacontrol.h">
+      <Filter>api</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="demo_dialog_get_int_values.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="api\cqdatacontrol.cpp">
+      <Filter>api</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
